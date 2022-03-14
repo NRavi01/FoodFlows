@@ -26,7 +26,7 @@ class Header extends Component {
       <div className="row banner">
          <div className="banner-text">
             <h1 className="responsive-headline">FoodFlows</h1>
-            <h3>Made by Nishant Ravi, Ashish D'souza, Dainella Ruzinov, Shirley Feng.</h3>
+            <h3>Made by Nishant Ravi, Ashish D'Souza, Dainella Ruzinov, Shirley Feng.</h3>
             <hr />
             <ul className="social">
                <a href={"#about"} className="button btn project-btn"><i className="fa fa-book"></i>Get Started</a>
