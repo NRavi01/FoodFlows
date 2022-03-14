@@ -425,6 +425,8 @@ class Data extends Component {
                 <br /><br /><br />
                 <div className="dropzone">
                   
+
+    
                   <br /><br /><br />
                 </div>
                 <h2>Upload or drop your <font size={fontSize} color="#00A4FF">CSV</font><br /> file here.</h2>
