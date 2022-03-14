@@ -1,0 +1,25 @@
+# docker-compose.yml
+services:
+  backend:
+    container_name: foodflows-backend
+    build:
+      context: backend
+    restart: unless-stopped
+    networks:
+      - foodflows
+  nginx:
+    container_name: foodflows-nginx
+    build:
+      context: .
+    restart: unless-stopped
+    networks:
+      - foodflows
+    ports:
+      - "8080:80"
+networks:
+  foodflows:
+    name: foodflows
+    ipam:
+      config:
+        - subnet: 172.18.1.0/24
+          gateway: 172.18.1.1
