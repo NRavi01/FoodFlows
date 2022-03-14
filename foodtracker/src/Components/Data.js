@@ -7,7 +7,7 @@ import ReactFileReader from './ReactFileReader';
 import Chart from 'chart.js';
 import Dropzone from 'react-dropzone';
 import Portfolio from './Portfolio';
-import csv from 'csv';
+//import csv from 'csv';
 import ReactLoading from 'react-loading';
 
 
@@ -282,7 +282,7 @@ class Data extends Component {
     this.setState({projection: port_dict})
   }
   
-
+/*
   onDrop(files) {
 
     this.setState({ files });
@@ -315,6 +315,7 @@ class Data extends Component {
 
     reader.readAsBinaryString(file);
   }
+  */
 
   render() {
       const fontSize = 5;
@@ -423,8 +424,9 @@ class Data extends Component {
               <div align="center" oncontextmenu="return false">
                 <br /><br /><br />
                 <div className="dropzone">
-                  <Dropzone accept=".csv" onDropAccepted={this.onDrop.bind(this)}>            
-                  </Dropzone>
+                  
+
+    
                   <br /><br /><br />
                 </div>
                 <h2>Upload or drop your <font size={fontSize} color="#00A4FF">CSV</font><br /> file here.</h2>
@@ -548,12 +550,10 @@ class Data extends Component {
                   <div className="three columns header-col">
                       <h1><span>CSV File</span></h1>
                   </div>
-
                   <div align="center" oncontextmenu="return false">
                     <br /><br /><br />
                     <div className="dropzone">
-                      <Dropzone accept=".csv" onDropAccepted={this.onDrop.bind(this)}>            
-                      </Dropzone>
+                      
                       <br /><br /><br />
                     </div>
                     <h2>Upload or drop your <font size={fontSize} color="#00A4FF">CSV</font><br /> file here.</h2>
@@ -695,8 +695,7 @@ class Data extends Component {
               <div align="center" oncontextmenu="return false">
                 <br /><br /><br />
                 <div className="dropzone">
-                  <Dropzone accept=".csv" onDropAccepted={this.onDrop.bind(this)}>            
-                  </Dropzone>
+                  
                   <br /><br /><br />
                 </div>
                 <h2>Upload or drop your <font size={fontSize} color="#00A4FF">CSV</font><br /> file here.</h2>
