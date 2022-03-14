@@ -4,7 +4,7 @@ import './App.css';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import About from './Components/About';
-import Data from './Components/Data';
+import Store from './Components/Store';
 import Contact from './Components/Contact';
 
 class App extends Component {
@@ -18,14 +18,13 @@ class App extends Component {
 
 
   }
-
+  //
   render() {
     return (
       <div className="App">
         <Header data={this.state.resumeData.main}/>
         <About data={this.state.resumeData.main}/>
-        <Data data={this.state.resumeData.data}/>
-        <Footer data={this.state.resumeData.main}/>
+        <Store data={this.state.resumeData.main}/>
       </div>
     );
   }
