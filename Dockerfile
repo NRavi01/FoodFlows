@@ -1,6 +1,7 @@
 # Dockerfile
 FROM node:alpine AS build-react
 WORKDIR /code
+
 COPY foodtracker .
 RUN npm install
 RUN npm run build
