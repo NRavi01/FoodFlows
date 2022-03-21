@@ -146,6 +146,8 @@ class Store extends Component {
 
   render() {
       const fontSize = 5;
+      
+
       if (this.state.step === "form") {
         return (
           <div>

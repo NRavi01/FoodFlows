@@ -18,7 +18,8 @@
     "react-file-reader": "^1.1.4",
     "react-ga": "^2.3.5",
     "react-loading": "^2.0.3",
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^1.0.17",
+    "jsx": "react"
   },
   "scripts": {
     "start": "react-scripts start",

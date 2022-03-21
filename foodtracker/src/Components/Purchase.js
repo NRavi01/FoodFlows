@@ -10,6 +10,10 @@ import Portfolio from './Portfolio';
 //import csv from 'csv';
 import ReactLoading from 'react-loading';
 import { RadioGroup, RadioButton, ReversedRadioButton } from 'react-radio-buttons'
+//import { Slider, RangeSlider } from 'rsuite';
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
+
 
 class Purchase extends Component {
   constructor(props) {
@@ -27,14 +31,22 @@ class Purchase extends Component {
       'October',
       'November',
       'December',
-    ]
-
+    ],
+    this.specific_dict = {},
+    //this.item_dict = this.props.dataFromParent,
+    this.item_dict = { 
+      'Fruits': {'Apple': '3.00', 'Orange': '4.00', 'Grape': '2.50'},
+      'Vegetables': {'Eggplant': '5.00'},
+      'Grains': {'Wholewheat Bread': '2.50'},
+      'Proteins': {'Chicken': '7.50'},
+      'Dairy': {'Milk' : '4.00', 'Yogurt': '3.00'}
+    }
+    this.total_cost = 0
+    this.oldValue = 0
     this.state = {
       step: 'Category',
       submitted: false,
-      category: null,
-      item_dict: null,
-      total_cost: 0,
+      category: '',
       selectedOptions: {},
       port1:  [
         {
@@ -87,7 +99,6 @@ calculateTotal(event) {
   findItems(event) {
     event.preventDefault();
     this.setState({step: 'slider'});
-    this.state.item_dict = this.props.dataFromParent
   };
   
   _enterData(event) {
@@ -150,8 +161,8 @@ calculateTotal(event) {
             <div className="row skill">
                 <RadioGroup onChange={ this.onChange }>
             
-                    <RadioButton value="Fruit" rootColor = "black" pointColor = "red">
-                    Fruit
+                    <RadioButton value="Fruits" rootColor = "black" pointColor = "red">
+                    Fruits
                     </RadioButton>
                     <RadioButton value="Vegetables" rootColor = "black" pointColor = "red">
                     Vegetables
@@ -159,8 +170,8 @@ calculateTotal(event) {
                     <RadioButton value="Grains" rootColor = "black" pointColor = "red">
                     Grains
                     </RadioButton>
-                    <RadioButton value="Protein Foods" rootColor = "black" pointColor = "red">
-                    Protein Foods
+                    <RadioButton value="Proteins" rootColor = "black" pointColor = "red">
+                    Proteins
                     </RadioButton>
                     <RadioButton value="Dairy" rootColor = "black" pointColor = "red">
                     Dairy
@@ -185,17 +196,59 @@ calculateTotal(event) {
 
     );
         }
+      /*
+      <Slider
+                  defaultValue={0}
+                  min={0}
+                  max={20}
+                  step={1}
+                  
+                />
+      onBeforeChange={(value) => this.oldValue = value}
+                  onChange={(newvalue) => this.total_cost = this.total_cost + (Number({value}) * (value - this.oldValue))
+                  }
+                  style={{ width: "100%" }}
+                  */
     else {
+        
+        this.specific_dict = this.item_dict[String(this.state.category)]
+        const Sliders = () =>
+        <div className  ="row education">
+          
+          {
+            Object.entries(this.specific_dict)
+            .map( ([key, value]) => (
+              <div className="row work">
+                <div className="three columns header-col">
+                  <h1><span>{key}</span></h1>
+                </div>
+                <div className="nine columns main-col">
+                  <Slider />
+                </div>
+              </div>
+
+            ))
+          }
+          
+        </div>
+        
         return (
+            
             <section id="data">
             <form onSubmit = {this.calculateTotal}>
               <div className="row education">
                 <div className="three columns header-col">
-                    <h1><span>Items In {this.state.category}</span></h1>
+                    <h1><span>Products</span></h1>
+                </div>
+                <div className="three columns main-col">
+                  <h1><span>Price</span></h1>
+                </div>
+                <div className="three columns main-col">
+                  <h1><span>Quantity</span></h1>
                 </div>
               </div>
               <div className="row skill">
-                  
+                  <Sliders />
               </div>
   
               <div className="row skill">
@@ -205,6 +258,10 @@ calculateTotal(event) {
                 </div>
   
                 <div className="nine columns main-col">
+                  <div className="row item">
+                    <input align="center" type="submit" value="Calculate Budget Statistics" />                </div>
+                </div>
+                <div className="three columns main-col">
                   <div className="row item">
                     <input align="center" type="submit" value="Calculate Budget Statistics" />                </div>
                 </div>
