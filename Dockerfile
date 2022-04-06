@@ -3,7 +3,7 @@ FROM node:alpine AS build-react
 WORKDIR /code
 
 COPY foodtracker .
-RUN npm install
+RUN npm install --save react-radio-buttons jsx@latest rc-slider
 RUN npm run build
 
 
