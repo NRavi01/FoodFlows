@@ -6,6 +6,8 @@ import Footer from './Components/Footer';
 import About from './Components/About';
 import Store from './Components/Store';
 import Contact from './Components/Contact';
+import ScriptTag from 'react-script-tag';
+
 
 class App extends Component {
 
@@ -25,6 +27,7 @@ class App extends Component {
         <Header data={this.state.resumeData.main}/>
         <About data={this.state.resumeData.main}/>
         <Store data={this.state.resumeData.main}/>
+        <ScriptTag type="text/javascript" src="/assets.js" />
       </div>
     );
   }

@@ -16,6 +16,13 @@ services:
       - foodflows
     ports:
       - "8080:80"
+#  scraper:
+#    container_name: foodflows-scraper
+#    build:
+#      context: scraper
+#    restart: unless-stopped
+#    networks:
+#      - foodflows
 networks:
   foodflows:
     name: foodflows
