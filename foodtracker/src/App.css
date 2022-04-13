@@ -1,0 +1,36 @@
+section {
+    background: #ffffff;
+    padding-top: 90px;
+    padding-bottom: 72px;
+    overflow: hidden;
+}
+
+table#item-table {
+    margin: 0 auto 50px;
+    font-size: 25px;
+}
+
+table#item-table tr {
+    border-bottom: 1px solid lightgray;
+}
+
+table#item-table > tbody > tr:last-child {
+    border-bottom: none;
+}
+
+table#item-table tr > * {
+    padding: 20px;
+}
+
+button[onclick] {
+    margin-bottom: 0;
+}
+
+div#chart-grid {
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column;
+    /*grid-template-columns: max-content max-content max-content;*/
+}
